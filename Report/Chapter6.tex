@@ -23,6 +23,23 @@ With nominal values inserted into the above equation, the resulting $\omega = 0.
 
 A total of approximately 35,000 spatial events were reshaped as five-timestep rolling windows in order to train the neural network. Sensor missing values are filled by applying an early fill method, using binary freshness flags in order to prevent teleportation errors caused by filling missing values with zeros. Early stoppage was implemented during the training phase in order to avoid overfitting. Normalized mean squared errors (MSE) were calculated for each of the data split sets. These MSEs indicated that the normalized MSE for the training data was 0.000588, for the validation data was 0.000621, and for the testing data was 0.001958. The average absolute deviation (MAE) of the test-set range was found to be 0.118 meters; while the angular MAE was determined to be 4.88 degrees. The Euclidean P95 error was determined to be 0.555 meters.
 
+\begin{table}[htbp]
+\centering
+\caption{Model accuracy metrics}
+\label{tab:model_accuracy}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Metric} & \textbf{Train} & \textbf{Val} & \textbf{Test} \\
+\midrule
+MSE (norm)       & 0.000588       & 0.000621     & 0.001958      \\
+MAE range (m)    & 0.107          & 0.078        & \textbf{0.118} \\
+MAE angle ($^\circ$) & 2.09           & 3.02         & \textbf{4.88}  \\
+Euclid. mean (m) & 0.168          & 0.144        & \textbf{0.256} \\
+Euclid. 95th\% (m)& 0.385          & 0.276        & \textbf{0.555} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{Figures/training_curve.png}
@@ -35,15 +52,77 @@ A total of approximately 35,000 spatial events were reshaped as five-timestep ro
 
 The distribution of spatial errors was analyzed per band. In the 2.0--3.0 meter band, the range MAE was 0.116 meters, and the angular MAE was 6.66 degrees. In the 3.0--5.0 meter band, the range MAE was 0.119 meters, and the angular MAE was 3.62 degrees. As expected, range error remained consistent across bands indicating that the network is able to de-weight near-field multipath Wi-Fi. However, angular error decreased with increasing distances due to near-field lateral displacement resulting in greater angular sweeps relative to a fixed spatial resolution of the radar.
 
+\begin{table}[htbp]
+\centering
+\caption{Error by distance band}
+\label{tab:error_distance}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Band} & \textbf{N} & \textbf{MAE $r$} & \textbf{MAE $\theta$} \\
+\midrule
+2--3 m        & 566        & 0.116            & 6.66$^\circ$          \\
+3--5 m        & 794        & 0.119            & 3.62$^\circ$          \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Fused vs. Raw Comparison}
 \label{sec:fusedraw}
 
 As described above, capability comparisons among the modalities indicate that raw radar yields a range error of 0.15 to 0.65 meters, can handle angles, but will fail when there is no line-of-sight. Raw Wi-Fi yields a range error of 1.10 to 4.80 meters, cannot yield angles, but can provide obstruction handling. Finally, the fused ML model provides a range error of 0.118 meters, while also yielding both angles and obstruction handling capabilities. Radar occlusion demonstrates the ability of the system to perform low Euclidean errors during temporal reasoning using only forward filled Wi-Fi characteristics.
 
+\begin{table}[htbp]
+\centering
+\caption{Sensor comparison}
+\label{tab:sensor_comp}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Source} & \textbf{MAE $r$ (m)} & \textbf{Angle?} & \textbf{Walls?} \\
+\midrule
+Raw Radar       & $\pm$0.15--0.65      & Yes             & No              \\
+Raw Wi-Fi FTM   & $\pm$1.1--4.8        & No              & Yes             \\
+\textbf{ML Fusion} & \textbf{0.118}       & \textbf{Yes}    & \textbf{Yes}    \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Performance during occlusion}
+\label{tab:perf_occlusion}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Condition} & \textbf{N} & \textbf{Euclid. MAE} \\
+\midrule
+Radar available    & 1,163      & 0.262 m              \\
+Radar occluded     & 197        & 0.226 m              \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Edge Inference Performance}
 \label{sec:edgeinference}
 
 Benchmarking performance of ESP32-S3 inference shows that the model is 11.6~KB in size with 2,474 float32 parameter values. It has an internal SRAM footprint of 32~KB. Inference latency is about 350 microseconds ($\mu$s) per window, or more than 99\% available processing headroom unused. We did not evaluate integer quantization as we determined that reducing the 6 meter measurement space to 256 bins would introduce a 2.35 centimeter (cm) root mean square (rms) noise floor that would be compounded by subsequent hidden layer operations. Given its size, the model will fit fully within internal memory and thus avoid latency associated with DRAM access.
+
+\begin{table}[htbp]
+\centering
+\caption{ESP32-S3 inference benchmarks}
+\label{tab:edge_inference}
+\begin{tabular}{ll}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Model file size   & 11.6 KB \\
+Tensor arena      & 32 KB (internal SRAM) \\
+Inference latency & $\sim$350 $\mu$s \\
+Real-time budget  & 50,000 $\mu$s (50 ms) \\
+Headroom          & \textbf{99.3\% unused} \\
+Conversion loss   & $1.79 \times 10^{-7}$ \\
+Framework         & TFLite Micro, Float32 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[htbp]
 \centering
