@@ -20,8 +20,7 @@
 \frontmatter
 
 \title  {\bf Asynchronous Sensor Fusion for ISAC Nodes Integrating Wi-Fi Sensing and mmWave Radar}
-\authors{\texorpdfstring{\href{mailto:name.22xxxxx@vitstudent.ac.in}{Name1}
-         \and \href{mailto:name.22xxxxx@vitstudent.ac.in}{Name2}}{}}
+\authors{\texorpdfstring{Avinash Nair \and Anek Sreedhar T S \and Dasangam Akash}{}}
 \addresses{\groupname\\\deptname\\\univname}
 \date   {April 2026}
 \subject{}
@@ -49,7 +48,7 @@ submitted by us to the School of Electronics Engineering, Vellore Institute of
 Technology, Chennai, in partial fulfilment of the requirements for the award of
 {\bf Bachelor of Technology} in {\bf Electronics and Communication Engineering},
 is a bonafide record of the work carried out by us under the supervision of
-{\bf\textit{Guide Name}}.
+{\bf\textit{Dr.~Anith Nelleri}} (Employee ID: 50293).
 
 We further declare that the work reported in this report has not been submitted
 and will not be submitted, either in part or in full, for the award of any other
@@ -58,10 +57,11 @@ degree or diploma of this institute or of any other institute or University.
 \vspace{1cm}
 
 \noindent
-\begin{tabular}{@{}p{7cm}p{7cm}@{}}
-Signature of the Student: \dotfill & Signature of the Student: \dotfill \\[1.2cm]
-Name \& Reg.\ No.: \dotfill        & Name \& Reg.\ No.: \dotfill        \\[0.8cm]
-Date: \dotfill                     & Date: \dotfill                     \\
+\begin{tabular}{@{}p{5cm}p{5cm}p{5cm}@{}}
+Signature: \dotfill & Signature: \dotfill & Signature: \dotfill \\[1.2cm]
+Avinash Nair        & Anek Sreedhar T S    & Dasangam Akash       \\[0.3cm]
+22BEC1435            & 22BEC1376            & 22BEC1386            \\[0.8cm]
+Date: \dotfill       & Date: \dotfill       & Date: \dotfill       \\
 \end{tabular}
 
 \thispagestyle{empty}
@@ -76,7 +76,7 @@ Date: \dotfill                     & Date: \dotfill                     \\
 \addtocontents{toc}{\vspace{0.5em}}
 
 This is to certify that the project report titled {\bf\textit{Asynchronous Sensor Fusion for ISAC Nodes Integrating Wi-Fi Sensing and mmWave Radar}}
-submitted by {\bf\textit{Name(s)} (Reg.\ No.)} to Vellore Institute of Technology,
+submitted by {\bf\textit{Avinash Nair}} (22BEC1435), {\bf\textit{Anek Sreedhar T S}} (22BEC1376), and {\bf\textit{Dasangam Akash}} (22BEC1386) to Vellore Institute of Technology,
 Chennai, in partial fulfilment of the requirement for the award of the degree of
 {\bf Bachelor of Technology} in {\bf Electronics and Communication Engineering}
 is a bonafide work carried out under my supervision. The project report fulfils the
@@ -125,7 +125,7 @@ Date: \dotfill                   & Date: \dotfill                   \\
 \addtocontents{toc}{\vspace{1em}}
 
 A dual-tier asynchronous sensor fusion framework for the integration of radar sensors and wifi-based ieee 802.11mc fine time measurement on low-cost platforms based on the esp32-s3 dual-core platform is introduced in this work. Single-modality systems utilizing millimeter-wave radar provide range resolution sub-foot resolutions and micro-doppler signatures; however, they are blind to identity and fail under line of sight occlusions. Conversely, wifi-based ieee 802.11mc fine time measurements offer MAC address linked identifications with wall penetration capabilities but exhibit spatial variability ranging from approximately 1.5 m to 4.8 m and update rates that are limited to only 1 hz or 2 hz. As a result, standard Kalman filters lock onto stale wifi readings due to the synchronization gap between the two modality systems which causes trajectory step artefacts during target maneuvers.
-The two new fusion methods were tested and compared to each other. The dynamic covariance intersection method (dc-i), used an angular vector from the radar system to project one dimensional wifi range into it. dc-i also applied first order hold velocity extrapolation. When using this method as well as age of information penalties for real time inflation of stale sensor covariances, there was a 45\% improvement in mean squared error over dc-i when sensors became occluded. A small edge mlp (11.6~kb, 2,474 float32 params) took a 5x5 sliding window of forward filled features with fresh flags that indicated if feature was fresh or old. It completed inference in 350 ~microsecond windows completely inside the edge device sram, had a test set average absolute error of 0.118~m and euclidean p95 error of 0.555~m. Isolation of both cores --- wifi on core~0, uart parse \& inference on core~1--- eliminated serial buffer corruption. The validation process utilized a matlab/simulink digital twin and python test suite which covered many different type of cases such as; field of view escapes, pillar occlusions, walking around objects and statue mode scenarios.
+The two new fusion methods were tested and compared to each other. The dynamic covariance intersection method (dc-i), used an angular vector from the radar system to project one dimensional wifi range into it. dc-i also applied first order hold velocity extrapolation. When using this method as well as age of information penalties for real time inflation of stale sensor covariances, there was a 45\% improvement in mean squared error over dc-i when sensors became occluded. A small edge mlp (11.6~kb, 2,474 float32 params) took a 5x5 sliding window of forward filled features with fresh flags that indicated if feature was fresh or old. It completed inference in 350 ~microsecond windows completely inside the edge device sram, had a test set average absolute error of 0.118~m and euclidean p95 error of 0.555~m. Isolation of both cores - wifi on core~0, uart parse \& inference on core~1 - eliminated serial buffer corruption. The validation process utilized a matlab/simulink digital twin and python test suite which covered many different type of cases such as; field of view escapes, pillar occlusions, walking around objects and statue mode scenarios.
 }
 
 \clearpage
@@ -137,8 +137,8 @@ The two new fusion methods were tested and compared to each other. The dynamic c
 \addtocontents{toc}{\vspace{1em}}
 
 We wish to express our sincere thanks and deep sense of gratitude to our project guide,
-\textbf{Dr.~XXXX}, Professor, School of Electronics Engineering (SENSE), for
-his/her consistent encouragement and valuable guidance offered to us in a pleasant
+\textbf{Dr.~Anith Nelleri} (Employee ID: 50293), Professor, School of Electronics Engineering (SENSE), for
+his consistent encouragement and valuable guidance offered to us in a pleasant
 manner throughout the course of the project work.
 
 We sincerely express our gratitude to \textbf{Dr.~Ravi Sankar~A}, Dean, SENSE;
@@ -207,9 +207,6 @@ a prestigious institution.
   \acro{FOH}     {First Order Hold}
   \acro{ZOH}     {Zero Order Hold}
   \acro{EMA}     {Exponential Moving Average}
-  \acro{IoT}     {Internet of Things}
-  \acro{ML}      {Machine Learning}
-  \acro{AI}      {Artificial Intelligence}
   \acro{GPS}     {Global Positioning System}
   \acro{IMU}     {Inertial Measurement Unit}
   \acro{LiDAR}   {Light Detection and Ranging}
@@ -234,6 +231,7 @@ a prestigious institution.
 \input{Chapter7}   % Challenges and Solutions
 \input{Chapter8}   % Conclusion and Future Work
 \input{Bibliography}
+\input{Biodata}
 
 \addtocontents{toc}{\vspace{2em}}
 

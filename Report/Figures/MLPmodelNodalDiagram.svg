@@ -1,0 +1,244 @@
+<svg width="1399pt" height="512pt" viewBox="0.00 0.00 1399.00 512.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 508)">
+<title>TruncatedNeuralNetwork</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-508 1394.83,-508 1394.83,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_0</title>
+<polygon fill="none" stroke="none" points="0,-8 0,-496 166.16,-496 166.16,-8 0,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="83.08" y="-60" font-family="Helvetica,Arial,sans-serif" font-size="32.00">Input Layer</text>
+<text xml:space="preserve" text-anchor="middle" x="83.08" y="-21.6" font-family="Helvetica,Arial,sans-serif" font-size="32.00">(35 nodes)</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_1</title>
+<polygon fill="none" stroke="none" points="366.16,-8 366.16,-496 569.64,-496 569.64,-8 366.16,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="467.9" y="-60" font-family="Helvetica,Arial,sans-serif" font-size="32.00">Dense (ReLU)</text>
+<text xml:space="preserve" text-anchor="middle" x="467.9" y="-21.6" font-family="Helvetica,Arial,sans-serif" font-size="32.00">(48 nodes)</text>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_2</title>
+<polygon fill="none" stroke="none" points="769.64,-8 769.64,-496 973.12,-496 973.12,-8 769.64,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="871.38" y="-60" font-family="Helvetica,Arial,sans-serif" font-size="32.00">Dense (ReLU)</text>
+<text xml:space="preserve" text-anchor="middle" x="871.38" y="-21.6" font-family="Helvetica,Arial,sans-serif" font-size="32.00">(24 nodes)</text>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_3</title>
+<polygon fill="none" stroke="none" points="1173.12,-58 1173.12,-318 1390.83,-318 1390.83,-58 1173.12,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="1281.98" y="-110" font-family="Helvetica,Arial,sans-serif" font-size="32.00">Output (Linear)</text>
+<text xml:space="preserve" text-anchor="middle" x="1281.98" y="-71.6" font-family="Helvetica,Arial,sans-serif" font-size="32.00">(2 nodes)</text>
+</g>
+<!-- i1 -->
+<g id="node1" class="node">
+<title>i1</title>
+<ellipse fill="lightgreen" stroke="black" cx="82.58" cy="-130" rx="28.8" ry="28.8"/>
+</g>
+<!-- h1_1 -->
+<g id="node5" class="node">
+<title>h1_1</title>
+<ellipse fill="lightblue" stroke="black" cx="467.4" cy="-459" rx="28.8" ry="28.8"/>
+</g>
+<!-- i1&#45;&gt;h1_1 -->
+<g id="edge1" class="edge">
+<title>i1-&gt;h1_1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M104.98,-148.39C169.31,-203.68 361.08,-368.49 435.96,-432.84"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="433.32,-435.19 443.19,-439.05 437.89,-429.88 433.32,-435.19"/>
+</g>
+<!-- h1_2 -->
+<g id="node6" class="node">
+<title>h1_2</title>
+<ellipse fill="lightblue" stroke="black" cx="467.4" cy="-130" rx="28.8" ry="28.8"/>
+</g>
+<!-- i1&#45;&gt;h1_2 -->
+<g id="edge2" class="edge">
+<title>i1-&gt;h1_2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M111.73,-130C178.79,-130 348.19,-130 426.08,-130"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="425.94,-133.5 435.94,-130 425.94,-126.5 425.94,-133.5"/>
+</g>
+<!-- h1_3 -->
+<g id="node8" class="node">
+<title>h1_3</title>
+<ellipse fill="lightblue" stroke="black" cx="467.4" cy="-231" rx="28.8" ry="28.8"/>
+</g>
+<!-- i1&#45;&gt;h1_3 -->
+<g id="edge3" class="edge">
+<title>i1-&gt;h1_3</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M110.8,-137.18C177.61,-154.81 349.82,-200.24 427.44,-220.72"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="426.3,-224.04 436.86,-223.21 428.09,-217.27 426.3,-224.04"/>
+</g>
+<!-- i2 -->
+<g id="node2" class="node">
+<title>i2</title>
+<ellipse fill="lightgreen" stroke="black" cx="82.58" cy="-231" rx="28.8" ry="28.8"/>
+</g>
+<!-- i2&#45;&gt;h1_1 -->
+<g id="edge4" class="edge">
+<title>i2-&gt;h1_1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M107.82,-245.44C173.45,-284.53 354.86,-392.57 431.5,-438.21"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="429.69,-441.21 440.07,-443.32 433.27,-435.19 429.69,-441.21"/>
+</g>
+<!-- i2&#45;&gt;h1_2 -->
+<g id="edge5" class="edge">
+<title>i2-&gt;h1_2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M110.8,-223.82C177.61,-206.19 349.82,-160.76 427.44,-140.28"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="428.09,-143.73 436.86,-137.79 426.3,-136.96 428.09,-143.73"/>
+</g>
+<!-- i2&#45;&gt;h1_3 -->
+<g id="edge6" class="edge">
+<title>i2-&gt;h1_3</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M111.73,-231C178.79,-231 348.19,-231 426.08,-231"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="425.94,-234.5 435.94,-231 425.94,-227.5 425.94,-234.5"/>
+</g>
+<!-- i_dots -->
+<g id="node3" class="node">
+<title>i_dots</title>
+<text xml:space="preserve" text-anchor="middle" x="82.58" y="-325.8" font-family="Times,serif" font-size="64.00">⋮</text>
+</g>
+<!-- i3 -->
+<g id="node4" class="node">
+<title>i3</title>
+<ellipse fill="lightgreen" stroke="black" cx="82.58" cy="-459" rx="28.8" ry="28.8"/>
+</g>
+<!-- i3&#45;&gt;h1_1 -->
+<g id="edge7" class="edge">
+<title>i3-&gt;h1_1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M111.73,-459C178.79,-459 348.19,-459 426.08,-459"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="425.94,-462.5 435.94,-459 425.94,-455.5 425.94,-462.5"/>
+</g>
+<!-- i3&#45;&gt;h1_2 -->
+<g id="edge8" class="edge">
+<title>i3-&gt;h1_2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M104.98,-440.61C169.31,-385.32 361.08,-220.51 435.96,-156.16"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="437.89,-159.12 443.19,-149.95 433.32,-153.81 437.89,-159.12"/>
+</g>
+<!-- i3&#45;&gt;h1_3 -->
+<g id="edge9" class="edge">
+<title>i3-&gt;h1_3</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M107.82,-444.56C173.45,-405.47 354.86,-297.43 431.5,-251.79"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="433.27,-254.81 440.07,-246.68 429.69,-248.79 433.27,-254.81"/>
+</g>
+<!-- h2_1 -->
+<g id="node9" class="node">
+<title>h2_1</title>
+<ellipse fill="lightblue" stroke="black" cx="870.88" cy="-459" rx="28.8" ry="28.8"/>
+</g>
+<!-- h1_1&#45;&gt;h2_1 -->
+<g id="edge10" class="edge">
+<title>h1_1-&gt;h2_1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M496.63,-459C566.6,-459 748.25,-459 829.53,-459"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="829.41,-462.5 839.41,-459 829.41,-455.5 829.41,-462.5"/>
+</g>
+<!-- h2_2 -->
+<g id="node10" class="node">
+<title>h2_2</title>
+<ellipse fill="lightblue" stroke="black" cx="870.88" cy="-130" rx="28.8" ry="28.8"/>
+</g>
+<!-- h1_1&#45;&gt;h2_2 -->
+<g id="edge11" class="edge">
+<title>h1_1-&gt;h2_2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M490.27,-441.08C557.43,-386.04 760.87,-219.33 838.93,-155.36"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="840.96,-158.22 846.48,-149.18 836.53,-152.81 840.96,-158.22"/>
+</g>
+<!-- h2_3 -->
+<g id="node12" class="node">
+<title>h2_3</title>
+<ellipse fill="lightblue" stroke="black" cx="870.88" cy="-231" rx="28.8" ry="28.8"/>
+</g>
+<!-- h1_1&#45;&gt;h2_3 -->
+<g id="edge12" class="edge">
+<title>h1_1-&gt;h2_3</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M492.91,-445.08C561.36,-406.21 754.79,-296.36 834.69,-250.99"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="836.24,-254.13 843.21,-246.15 832.78,-248.04 836.24,-254.13"/>
+</g>
+<!-- h1_2&#45;&gt;h2_1 -->
+<g id="edge13" class="edge">
+<title>h1_2-&gt;h2_1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M490.27,-147.92C557.43,-202.96 760.87,-369.67 838.93,-433.64"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="836.53,-436.19 846.48,-439.82 840.96,-430.78 836.53,-436.19"/>
+</g>
+<!-- h1_2&#45;&gt;h2_2 -->
+<g id="edge14" class="edge">
+<title>h1_2-&gt;h2_2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M496.63,-130C566.6,-130 748.25,-130 829.53,-130"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="829.41,-133.5 839.41,-130 829.41,-126.5 829.41,-133.5"/>
+</g>
+<!-- h1_2&#45;&gt;h2_3 -->
+<g id="edge15" class="edge">
+<title>h1_2-&gt;h2_3</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M495.68,-136.86C565.35,-154.39 750.02,-200.85 830.95,-221.21"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="829.81,-224.53 840.36,-223.57 831.52,-217.74 829.81,-224.53"/>
+</g>
+<!-- h1_dots -->
+<g id="node7" class="node">
+<title>h1_dots</title>
+<text xml:space="preserve" text-anchor="middle" x="467.4" y="-325.8" font-family="Times,serif" font-size="64.00">⋮</text>
+</g>
+<!-- h1_3&#45;&gt;h2_1 -->
+<g id="edge16" class="edge">
+<title>h1_3-&gt;h2_1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M492.91,-244.92C561.36,-283.79 754.79,-393.64 834.69,-439.01"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="832.78,-441.96 843.21,-443.85 836.24,-435.87 832.78,-441.96"/>
+</g>
+<!-- h1_3&#45;&gt;h2_2 -->
+<g id="edge17" class="edge">
+<title>h1_3-&gt;h2_2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M495.68,-224.14C565.35,-206.61 750.02,-160.15 830.95,-139.79"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="831.52,-143.26 840.36,-137.43 829.81,-136.47 831.52,-143.26"/>
+</g>
+<!-- h1_3&#45;&gt;h2_3 -->
+<g id="edge18" class="edge">
+<title>h1_3-&gt;h2_3</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M496.63,-231C566.6,-231 748.25,-231 829.53,-231"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="829.41,-234.5 839.41,-231 829.41,-227.5 829.41,-234.5"/>
+</g>
+<!-- o1 -->
+<g id="node13" class="node">
+<title>o1</title>
+<ellipse fill="salmon" stroke="black" cx="1281.48" cy="-180" rx="28.8" ry="28.8"/>
+</g>
+<!-- h2_1&#45;&gt;o1 -->
+<g id="edge19" class="edge">
+<title>h2_1-&gt;o1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M895.32,-443C964.29,-395.9 1166.75,-257.66 1247.08,-202.81"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="1248.98,-205.75 1255.26,-197.22 1245.03,-199.97 1248.98,-205.75"/>
+</g>
+<!-- o2 -->
+<g id="node14" class="node">
+<title>o2</title>
+<ellipse fill="salmon" stroke="black" cx="1281.48" cy="-281" rx="28.8" ry="28.8"/>
+</g>
+<!-- h2_1&#45;&gt;o2 -->
+<g id="edge20" class="edge">
+<title>h2_1-&gt;o2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M897.75,-447.73C967.89,-417.17 1161.89,-332.66 1243.52,-297.1"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="1244.87,-300.33 1252.64,-293.13 1242.07,-293.91 1244.87,-300.33"/>
+</g>
+<!-- h2_2&#45;&gt;o1 -->
+<g id="edge21" class="edge">
+<title>h2_2-&gt;o1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M899.97,-133.44C970.98,-142.13 1157.9,-165 1240.39,-175.09"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="1239.86,-178.56 1250.21,-176.3 1240.71,-171.61 1239.86,-178.56"/>
+</g>
+<!-- h2_2&#45;&gt;o2 -->
+<g id="edge22" class="edge">
+<title>h2_2-&gt;o2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M898.38,-139.79C968.76,-165.8 1160.61,-236.7 1242.55,-266.98"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="1241.32,-270.26 1251.91,-270.44 1243.75,-263.69 1241.32,-270.26"/>
+</g>
+<!-- h2_dots -->
+<g id="node11" class="node">
+<title>h2_dots</title>
+<text xml:space="preserve" text-anchor="middle" x="870.88" y="-325.8" font-family="Times,serif" font-size="64.00">⋮</text>
+</g>
+<!-- h2_3&#45;&gt;o1 -->
+<g id="edge23" class="edge">
+<title>h2_3-&gt;o1</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M899.97,-227.49C970.98,-218.63 1157.9,-195.3 1240.39,-185"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="1240.72,-188.49 1250.21,-183.78 1239.86,-181.54 1240.72,-188.49"/>
+</g>
+<!-- h2_3&#45;&gt;o2 -->
+<g id="edge24" class="edge">
+<title>h2_3-&gt;o2</title>
+<path fill="none" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" d="M899.97,-234.44C970.98,-243.13 1157.9,-266 1240.39,-276.09"/>
+<polygon fill="#999999" fill-opacity="0.533333" stroke="#999999" stroke-width="1.5" stroke-opacity="0.533333" points="1239.86,-279.56 1250.21,-277.3 1240.71,-272.61 1239.86,-279.56"/>
+</g>
+</g>
+</svg>

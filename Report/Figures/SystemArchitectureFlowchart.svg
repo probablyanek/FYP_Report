@@ -1,0 +1,159 @@
+<svg width="985pt" height="698pt" viewBox="0.00 0.00 985.00 698.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 694)">
+<title>ISAC_Architecture</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-694 980.57,-694 980.57,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_target</title>
+<polygon fill="#f0f8ff" stroke="#0056b3" stroke-dasharray="5,2" points="288.42,-8 288.42,-292 681.9,-292 681.9,-8 288.42,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-275.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00" fill="#0056b3">Cooperative Target (Active Tag)</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_node</title>
+<polygon fill="#ffffff" stroke="#212529" points="8,-307 8,-682 966.34,-682 966.34,-307 8,-307"/>
+<text xml:space="preserve" text-anchor="middle" x="487.17" y="-665.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00" fill="#212529">ISAC Sensing Node</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_esp32</title>
+<polygon fill="#f8f9fa" stroke="#6c757d" points="390.39,-315 390.39,-649 958.34,-649 958.34,-315 390.39,-315"/>
+<text xml:space="preserve" text-anchor="middle" x="674.37" y="-634.2" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#212529">ESP32-S3 Dual-Core MCU (FreeRTOS)</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_core0</title>
+<polygon fill="#e8f5e9" stroke="#28a745" points="398.39,-323 398.39,-420 571.93,-420 571.93,-323 398.39,-323"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-405.2" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#28a745">Core 0 (Networking)</text>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_core1</title>
+<polygon fill="#fde1e1" stroke="#dc3545" points="403.25,-428 403.25,-619 567.07,-619 567.07,-428 403.25,-428"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-604.2" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#dc3545">Core 1 (Sensing &amp; Compute)</text>
+</g>
+<!-- reflector -->
+<g id="node1" class="node">
+<title>reflector</title>
+<path fill="#e2e3e5" stroke="#343a40" d="M495.19,-22.99C495.19,-22.99 663.87,-133.71 663.87,-133.71 668.89,-137 667.9,-140.3 661.9,-140.3 661.9,-140.3 308.42,-140.3 308.42,-140.3 302.42,-140.3 301.43,-137 306.45,-133.71 306.45,-133.71 475.13,-22.99 475.13,-22.99 480.14,-19.7 490.18,-19.7 495.19,-22.99"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-111.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Trihedral Corner</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-94.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Reflector</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-78" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Passive RCS Boost)</text>
+</g>
+<!-- radar -->
+<g id="node3" class="node">
+<title>radar</title>
+<polygon fill="#e2e3e5" stroke="#343a40" points="159.15,-373.2 16,-373.2 16,-369.2 12,-369.2 12,-365.2 16,-365.2 16,-322.8 12,-322.8 12,-318.8 16,-318.8 16,-314.8 159.15,-314.8 159.15,-373.2"/>
+<polyline fill="none" stroke="#343a40" points="16,-369.2 20,-369.2 20,-365.2 16,-365.2"/>
+<polyline fill="none" stroke="#343a40" points="16,-322.8 20,-322.8 20,-318.8 16,-318.8"/>
+<text xml:space="preserve" text-anchor="middle" x="87.57" y="-356.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">HLK-LD2450</text>
+<text xml:space="preserve" text-anchor="middle" x="87.57" y="-339.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">24 GHz FMCW Radar</text>
+<text xml:space="preserve" text-anchor="middle" x="87.57" y="-323" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Cartesian Extraction)</text>
+</g>
+<!-- reflector&#45;&gt;radar -->
+<g id="edge2" class="edge">
+<title>reflector-&gt;radar</title>
+<path fill="none" stroke="#dc3545" stroke-dasharray="5,2" d="M302.57,-140.72C264.88,-154.49 226.99,-172.52 195.15,-196 156.46,-224.52 126.18,-271.25 107.94,-304.57"/>
+<polygon fill="#dc3545" stroke="#dc3545" points="105.01,-302.64 103.39,-313.11 111.18,-305.94 105.01,-302.64"/>
+<text xml:space="preserve" text-anchor="middle" x="227.78" y="-199" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc3545"> 24 GHz Rx</text>
+</g>
+<!-- responder -->
+<g id="node2" class="node">
+<title>responder</title>
+<path fill="#cce5ff" stroke="#343a40" d="M548.05,-258.8C548.05,-258.8 422.27,-258.8 422.27,-258.8 416.27,-258.8 410.27,-252.8 410.27,-246.8 410.27,-246.8 410.27,-229.2 410.27,-229.2 410.27,-223.2 416.27,-217.2 422.27,-217.2 422.27,-217.2 548.05,-217.2 548.05,-217.2 554.05,-217.2 560.05,-223.2 560.05,-229.2 560.05,-229.2 560.05,-246.8 560.05,-246.8 560.05,-252.8 554.05,-258.8 548.05,-258.8"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-242.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">ESP32 FTM Responder</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-225.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(SSID: ISAC_TAG)</text>
+</g>
+<!-- radar&#45;&gt;reflector -->
+<g id="edge1" class="edge">
+<title>radar-&gt;reflector</title>
+<path fill="none" stroke="#dc3545" stroke-dasharray="5,2" d="M125.67,-314.39C164.91,-283.72 229.22,-235.3 288.42,-199 319.09,-180.19 353.73,-161.67 385.25,-145.78"/>
+<polygon fill="#dc3545" stroke="#dc3545" points="386.63,-149 394.01,-141.39 383.5,-142.74 386.63,-149"/>
+<text xml:space="preserve" text-anchor="middle" x="227.78" y="-262.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc3545"> 24 GHz Tx</text>
+</g>
+<!-- uart_task -->
+<g id="node5" class="node">
+<title>uart_task</title>
+<path fill="#f8d7da" stroke="#343a40" d="M547.07,-588.2C547.07,-588.2 423.25,-588.2 423.25,-588.2 417.25,-588.2 411.25,-582.2 411.25,-576.2 411.25,-576.2 411.25,-541.8 411.25,-541.8 411.25,-535.8 417.25,-529.8 423.25,-529.8 423.25,-529.8 547.07,-529.8 547.07,-529.8 553.07,-529.8 559.07,-535.8 559.07,-541.8 559.07,-541.8 559.07,-576.2 559.07,-576.2 559.07,-582.2 553.07,-588.2 547.07,-588.2"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-571.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">uart_radar_task</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-554.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Priority 5)</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-538" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Sliding-Window Parser</text>
+</g>
+<!-- radar&#45;&gt;uart_task -->
+<g id="edge4" class="edge">
+<title>radar-&gt;uart_task</title>
+<path fill="none" stroke="#495057" d="M114.97,-373.41C150.6,-411.25 217.8,-476.37 288.42,-512 323.06,-529.48 364.46,-540.64 400.25,-547.67"/>
+<polygon fill="#495057" stroke="#495057" points="399.21,-551.03 409.68,-549.44 400.5,-544.15 399.21,-551.03"/>
+<text xml:space="preserve" text-anchor="middle" x="227.78" y="-509.59" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> UART Bus</text>
+<text xml:space="preserve" text-anchor="middle" x="227.78" y="-497.59" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> (256,000 Baud)</text>
+</g>
+<!-- wifi_task -->
+<g id="node4" class="node">
+<title>wifi_task</title>
+<path fill="#c8e6c9" stroke="#343a40" d="M551.93,-389.2C551.93,-389.2 418.39,-389.2 418.39,-389.2 412.39,-389.2 406.39,-383.2 406.39,-377.2 406.39,-377.2 406.39,-342.8 406.39,-342.8 406.39,-336.8 412.39,-330.8 418.39,-330.8 418.39,-330.8 551.93,-330.8 551.93,-330.8 557.93,-330.8 563.93,-336.8 563.93,-342.8 563.93,-342.8 563.93,-377.2 563.93,-377.2 563.93,-383.2 557.93,-389.2 551.93,-389.2"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-372.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">wifi_ftm_task</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-355.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Priority 5)</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-339" font-family="Helvetica,Arial,sans-serif" font-size="14.00">2.4GHz HT40, Min-RTT</text>
+</g>
+<!-- wifi_task&#45;&gt;responder -->
+<g id="edge3" class="edge">
+<title>wifi_task-&gt;responder</title>
+<path fill="none" stroke="#0056b3" stroke-dasharray="5,2" d="M485.16,-319.24C485.16,-303.45 485.16,-285.62 485.16,-270.7"/>
+<polygon fill="#0056b3" stroke="#0056b3" points="481.66,-318.8 485.16,-328.8 488.66,-318.8 481.66,-318.8"/>
+<polygon fill="#0056b3" stroke="#0056b3" points="488.66,-270.76 485.16,-260.76 481.66,-270.76 488.66,-270.76"/>
+<text xml:space="preserve" text-anchor="middle" x="470.16" y="-297.8" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#0056b3"> 802.11mc FTM</text>
+<text xml:space="preserve" text-anchor="middle" x="470.16" y="-285.8" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#0056b3"> (16-Frame Burst)</text>
+</g>
+<!-- rtos_queue -->
+<g id="node7" class="node">
+<title>rtos_queue</title>
+<path fill="#fff3cd" stroke="#343a40" d="M950.34,-488.4C950.34,-491.27 925.4,-493.6 894.7,-493.6 864,-493.6 839.07,-491.27 839.07,-488.4 839.07,-488.4 839.07,-441.6 839.07,-441.6 839.07,-438.73 864,-436.4 894.7,-436.4 925.4,-436.4 950.34,-438.73 950.34,-441.6 950.34,-441.6 950.34,-488.4 950.34,-488.4"/>
+<path fill="none" stroke="#343a40" d="M950.34,-488.4C950.34,-485.53 925.4,-483.2 894.7,-483.2 864,-483.2 839.07,-485.53 839.07,-488.4"/>
+<text xml:space="preserve" text-anchor="middle" x="894.7" y="-469.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">sensor_queue</text>
+<text xml:space="preserve" text-anchor="middle" x="894.7" y="-452.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(FreeRTOS IPC)</text>
+</g>
+<!-- wifi_task&#45;&gt;rtos_queue -->
+<g id="edge5" class="edge">
+<title>wifi_task-&gt;rtos_queue</title>
+<path fill="none" stroke="#495057" d="M564.37,-378.64C622.98,-392.79 705.1,-412.99 776.84,-432 793.47,-436.41 811.38,-441.36 828.06,-446.06"/>
+<polygon fill="#495057" stroke="#495057" points="826.78,-449.34 837.36,-448.69 828.69,-442.6 826.78,-449.34"/>
+<text xml:space="preserve" text-anchor="middle" x="743.37" y="-447" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> xQueueSend</text>
+<text xml:space="preserve" text-anchor="middle" x="743.37" y="-435" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> (Asynchronous)</text>
+</g>
+<!-- uart_task&#45;&gt;rtos_queue -->
+<g id="edge6" class="edge">
+<title>uart_task-&gt;rtos_queue</title>
+<path fill="none" stroke="#495057" d="M559.34,-545.08C618.31,-533.52 703.23,-516.09 776.84,-498 793.46,-493.91 811.3,-489.1 827.91,-484.43"/>
+<polygon fill="#495057" stroke="#495057" points="828.5,-487.9 837.17,-481.8 826.59,-481.17 828.5,-487.9"/>
+<text xml:space="preserve" text-anchor="middle" x="743.37" y="-527.86" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> xQueueSend</text>
+<text xml:space="preserve" text-anchor="middle" x="743.37" y="-515.86" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> (Asynchronous)</text>
+</g>
+<!-- fusion_task -->
+<g id="node6" class="node">
+<title>fusion_task</title>
+<path fill="#f8d7da" stroke="#343a40" d="M536.19,-494.2C536.19,-494.2 434.13,-494.2 434.13,-494.2 428.13,-494.2 422.13,-488.2 422.13,-482.2 422.13,-482.2 422.13,-447.8 422.13,-447.8 422.13,-441.8 428.13,-435.8 434.13,-435.8 434.13,-435.8 536.19,-435.8 536.19,-435.8 542.19,-435.8 548.19,-441.8 548.19,-447.8 548.19,-447.8 548.19,-482.2 548.19,-482.2 548.19,-488.2 542.19,-494.2 536.19,-494.2"/>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-477.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">fusion_engine_task</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-460.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Priority 3)</text>
+<text xml:space="preserve" text-anchor="middle" x="485.16" y="-444" font-family="Helvetica,Arial,sans-serif" font-size="14.00">DCI / Float32 MLP</text>
+</g>
+<!-- output -->
+<g id="node8" class="node">
+<title>output</title>
+<polygon fill="#d1ecf1" stroke="#343a40" points="970.57,-298.8 812.84,-298.8 812.84,-257.2 976.57,-257.2 976.57,-292.8 970.57,-298.8"/>
+<polyline fill="none" stroke="#343a40" points="970.57,-298.8 970.57,-292.8"/>
+<polyline fill="none" stroke="#343a40" points="976.57,-292.8 970.57,-292.8"/>
+<text xml:space="preserve" text-anchor="middle" x="894.7" y="-282.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Fused Trajectory Estimate</text>
+<text xml:space="preserve" text-anchor="middle" x="894.7" y="-265.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(1D Range &amp; 2D Track)</text>
+</g>
+<!-- fusion_task&#45;&gt;output -->
+<g id="edge8" class="edge">
+<title>fusion_task-&gt;output</title>
+<path fill="none" stroke="#495057" d="M548.54,-470.35C591.62,-470.47 647.19,-462.94 681.9,-429 725.72,-386.16 664.1,-334.71 709.9,-294 734.43,-272.21 768.75,-265.29 801.1,-264.84"/>
+<polygon fill="#495057" stroke="#495057" points="800.9,-268.33 810.93,-264.92 800.96,-261.33 800.9,-268.33"/>
+<text xml:space="preserve" text-anchor="middle" x="743.37" y="-297" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> Output Vector</text>
+</g>
+<!-- rtos_queue&#45;&gt;fusion_task -->
+<g id="edge7" class="edge">
+<title>rtos_queue-&gt;fusion_task</title>
+<path fill="none" stroke="#495057" d="M838.88,-465C766.92,-465 640.35,-465 560.01,-465"/>
+<polygon fill="#495057" stroke="#495057" points="560.01,-461.5 550.01,-465 560.01,-468.5 560.01,-461.5"/>
+<text xml:space="preserve" text-anchor="middle" x="743.37" y="-480" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> xQueueReceive</text>
+<text xml:space="preserve" text-anchor="middle" x="743.37" y="-468" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> (Trigger)</text>
+</g>
+</g>
+</svg>

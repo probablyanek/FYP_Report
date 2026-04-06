@@ -23,6 +23,13 @@ With nominal values inserted into the above equation, the resulting $\omega = 0.
 
 A total of approximately 35,000 spatial events were reshaped as five-timestep rolling windows in order to train the neural network. Sensor missing values are filled by applying an early fill method, using binary freshness flags in order to prevent teleportation errors caused by filling missing values with zeros. Early stoppage was implemented during the training phase in order to avoid overfitting. Normalized mean squared errors (MSE) were calculated for each of the data split sets. These MSEs indicated that the normalized MSE for the training data was 0.000588, for the validation data was 0.000621, and for the testing data was 0.001958. The average absolute deviation (MAE) of the test-set range was found to be 0.118 meters; while the angular MAE was determined to be 4.88 degrees. The Euclidean P95 error was determined to be 0.555 meters.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/training_curve.png}
+\caption{Training and validation loss curves over 200 epochs showing convergence of the Edge MLP model with early stopping.}
+\label{fig:training_curve}
+\end{figure}
+
 \section{Distance-Band Analysis}
 \label{sec:distband}
 
@@ -38,6 +45,13 @@ As described above, capability comparisons among the modalities indicate that ra
 
 Benchmarking performance of ESP32-S3 inference shows that the model is 11.6~KB in size with 2,474 float32 parameter values. It has an internal SRAM footprint of 32~KB. Inference latency is about 350 microseconds ($\mu$s) per window, or more than 99\% available processing headroom unused. We did not evaluate integer quantization as we determined that reducing the 6 meter measurement space to 256 bins would introduce a 2.35 centimeter (cm) root mean square (rms) noise floor that would be compounded by subsequent hidden layer operations. Given its size, the model will fit fully within internal memory and thus avoid latency associated with DRAM access.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{Figures/Dashboard-fusedWithInferenceTimes.png}
+\caption{Real-time dashboard showing fused position estimates with inference timing metrics on the ESP32-S3 platform.}
+\label{fig:dashboard}
+\end{figure}
+
 \section{DCI vs. Machine Learning (ML)}
 \label{sec:dcivsml}
 
@@ -47,3 +61,10 @@ DCI mathematically works based upon three variables at one time while the machin
 \label{sec:failure}
 
 The four adverse scenarios examined in this study included (a) Field of View Escape, where DCI will spike the radar variance to infinity as soon as the target escapes from the radar cone, at which time DCI is forced to transition into 1-D Wi-Fi based on range alone. (b) Tangential Walk: If there is no radial velocity, the system can no longer make predictions about Wi-Fi position. In these cases the system depends on continuous update of the radar's angle to estimate rotation. (c) Pillar Occlusion: Instantaneous loss of line of sight causes a penalty adjustment of Wi-Fi extrapolation with velocity projection to fill in the hole until the target comes back into line of sight. (d) Statue Mode: When all motion ceases, the radar filter drops the track. However, the tag continues to maintain Wi-Fi session by sending out heartbeats that preserve the identity of the target until motion resumes. Therefore, the results demonstrate that multi-modal heterogeneous fusion successfully mitigates the individual shortcomings of both modalities for indoor localization.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{Figures/PythonScenarioTestingSimulation.png}
+\caption{Python test suite simulation results for the four failure scenarios: FOV escape, tangential walk, pillar occlusion, and statue mode.}
+\label{fig:python_scenarios}
+\end{figure}

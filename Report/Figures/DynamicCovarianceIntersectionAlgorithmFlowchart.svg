@@ -1,0 +1,144 @@
+<svg width="881pt" height="800pt" viewBox="0.00 0.00 881.00 800.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 795.6)">
+<title>DCI_Longitudinal_Flow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-795.6 876.99,-795.6 876.99,4 -4,4"/>
+<!-- radar -->
+<g id="node1" class="node">
+<title>radar</title>
+<path fill="#e0f7fa" stroke="#006064" d="M270.96,-791.6C270.96,-791.6 125.04,-791.6 125.04,-791.6 119.04,-791.6 113.04,-785.6 113.04,-779.6 113.04,-779.6 113.04,-741.2 113.04,-741.2 113.04,-735.2 119.04,-729.2 125.04,-729.2 125.04,-729.2 270.96,-729.2 270.96,-729.2 276.96,-729.2 282.96,-735.2 282.96,-741.2 282.96,-741.2 282.96,-779.6 282.96,-779.6 282.96,-785.6 276.96,-791.6 270.96,-791.6"/>
+<text xml:space="preserve" text-anchor="middle" x="198" y="-764.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Radar (24 GHz FMCW)</text>
+<text xml:space="preserve" text-anchor="middle" x="198" y="-747.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Fresh Update, σ²_radar)</text>
+</g>
+<!-- ftm_proj -->
+<g id="node3" class="node">
+<title>ftm_proj</title>
+<path fill="#e8f5e9" stroke="#1b5e20" d="M275.26,-659.2C275.26,-659.2 120.74,-659.2 120.74,-659.2 114.74,-659.2 108.74,-653.2 108.74,-647.2 108.74,-647.2 108.74,-592 108.74,-592 108.74,-586 114.74,-580 120.74,-580 120.74,-580 275.26,-580 275.26,-580 281.26,-580 287.26,-586 287.26,-592 287.26,-592 287.26,-647.2 287.26,-647.2 287.26,-653.2 281.26,-659.2 275.26,-659.2"/>
+<text xml:space="preserve" text-anchor="middle" x="198" y="-632.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Geometric Projection</text>
+<text xml:space="preserve" text-anchor="middle" x="198" y="-615.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(1D Range → 2D Position)</text>
+<text xml:space="preserve" text-anchor="middle" x="198" y="-598.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Uses Radar θ)</text>
+</g>
+<!-- radar&#45;&gt;ftm_proj -->
+<g id="edge2" class="edge">
+<title>radar-&gt;ftm_proj</title>
+<path fill="none" stroke="#495057" stroke-dasharray="5,2" d="M198,-728.8C198,-728.8 198,-671.19 198,-671.19"/>
+<polygon fill="#495057" stroke="#495057" points="201.5,-671.19 198,-661.19 194.5,-671.19 201.5,-671.19"/>
+<text xml:space="preserve" text-anchor="middle" x="214.11" y="-691.2" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> Fresh θ</text>
+</g>
+<!-- aoi_calc -->
+<g id="node4" class="node">
+<title>aoi_calc</title>
+<path fill="#fff3cd" stroke="#856404" d="M643.83,-501.6C643.83,-501.6 488.17,-501.6 488.17,-501.6 482.17,-501.6 476.17,-495.6 476.17,-489.6 476.17,-489.6 476.17,-451.2 476.17,-451.2 476.17,-445.2 482.17,-439.2 488.17,-439.2 488.17,-439.2 643.83,-439.2 643.83,-439.2 649.83,-439.2 655.83,-445.2 655.83,-451.2 655.83,-451.2 655.83,-489.6 655.83,-489.6 655.83,-495.6 649.83,-501.6 643.83,-501.6"/>
+<text xml:space="preserve" text-anchor="middle" x="566" y="-474.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Age of Information (AoI)</text>
+<text xml:space="preserve" text-anchor="middle" x="566" y="-457.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Penalty Calculation (Q * t)</text>
+</g>
+<!-- radar&#45;&gt;aoi_calc -->
+<g id="edge5" class="edge">
+<title>radar-&gt;aoi_calc</title>
+<path fill="none" stroke="#495057" stroke-dasharray="5,2" d="M283.24,-760C379.37,-760 522.44,-760 522.44,-760 522.44,-760 522.44,-513.46 522.44,-513.46"/>
+<polygon fill="#495057" stroke="#495057" points="525.94,-513.46 522.44,-503.46 518.94,-513.46 525.94,-513.46"/>
+<text xml:space="preserve" text-anchor="middle" x="459.33" y="-616.6" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> Current Time</text>
+</g>
+<!-- dci_fusion -->
+<g id="node7" class="node">
+<title>dci_fusion</title>
+<path fill="#d1ecf1" stroke="#0c5460" d="M415.4,-228.4C415.4,-228.4 98.6,-228.4 98.6,-228.4 92.6,-228.4 86.6,-222.4 86.6,-216.4 86.6,-216.4 86.6,-144.4 86.6,-144.4 86.6,-138.4 92.6,-132.4 98.6,-132.4 98.6,-132.4 415.4,-132.4 415.4,-132.4 421.4,-132.4 427.4,-138.4 427.4,-144.4 427.4,-144.4 427.4,-216.4 427.4,-216.4 427.4,-222.4 421.4,-228.4 415.4,-228.4"/>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-201.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Dynamic Covariance Intersection</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-184.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Core Logic</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-167.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">ω = 1/σ²_radar / (1/σ²_radar + 1/P_wifi(t))</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-151" font-family="Helvetica,Arial,sans-serif" font-size="14.00">r_fused = (ω/σ²_radar)z_radar + ((1-ω)/P_wifi(t))r_pred</text>
+</g>
+<!-- radar&#45;&gt;dci_fusion -->
+<g id="edge10" class="edge">
+<title>radar-&gt;dci_fusion</title>
+<path fill="none" stroke="#495057" d="M112.91,-760C103.75,-760 97.67,-760 97.67,-760 97.67,-760 97.67,-240.33 97.67,-240.33"/>
+<polygon fill="#495057" stroke="#495057" points="101.17,-240.33 97.67,-230.33 94.17,-240.33 101.17,-240.33"/>
+<text xml:space="preserve" text-anchor="middle" x="43.17" y="-473.4" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> z_radar (fresh range)</text>
+<text xml:space="preserve" text-anchor="middle" x="43.17" y="-461.4" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> σ²_radar</text>
+</g>
+<!-- ftm -->
+<g id="node2" class="node">
+<title>ftm</title>
+<path fill="#e8f5e9" stroke="#1b5e20" d="M717.3,-791.6C717.3,-791.6 580.7,-791.6 580.7,-791.6 574.7,-791.6 568.7,-785.6 568.7,-779.6 568.7,-779.6 568.7,-741.2 568.7,-741.2 568.7,-735.2 574.7,-729.2 580.7,-729.2 580.7,-729.2 717.3,-729.2 717.3,-729.2 723.3,-729.2 729.3,-735.2 729.3,-741.2 729.3,-741.2 729.3,-779.6 729.3,-779.6 729.3,-785.6 723.3,-791.6 717.3,-791.6"/>
+<text xml:space="preserve" text-anchor="middle" x="649" y="-764.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Wi-Fi FTM (2.4 GHz)</text>
+<text xml:space="preserve" text-anchor="middle" x="649" y="-747.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(Stale Update, σ²_wifi)</text>
+</g>
+<!-- ftm&#45;&gt;ftm_proj -->
+<g id="edge1" class="edge">
+<title>ftm-&gt;ftm_proj</title>
+<path fill="none" stroke="#495057" d="M597.74,-728.89C597.74,-687.5 597.74,-620 597.74,-620 597.74,-620 299.22,-620 299.22,-620"/>
+<polygon fill="#495057" stroke="#495057" points="299.22,-616.5 289.22,-620 299.22,-623.5 299.22,-616.5"/>
+<text xml:space="preserve" text-anchor="middle" x="566.99" y="-691.2" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> MAC-Layer Range</text>
+</g>
+<!-- ftm&#45;&gt;aoi_calc -->
+<g id="edge4" class="edge">
+<title>ftm-&gt;aoi_calc</title>
+<path fill="none" stroke="#495057" d="M626.79,-728.81C626.79,-728.81 626.79,-513.46 626.79,-513.46"/>
+<polygon fill="#495057" stroke="#495057" points="630.29,-513.46 626.79,-503.46 623.29,-513.46 630.29,-513.46"/>
+<text xml:space="preserve" text-anchor="middle" x="676.49" y="-616.6" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> Update Time</text>
+</g>
+<!-- cov_inflation -->
+<g id="node6" class="node">
+<title>cov_inflation</title>
+<path fill="#fff3cd" stroke="#856404" d="M644.6,-360.8C644.6,-360.8 487.4,-360.8 487.4,-360.8 481.4,-360.8 475.4,-354.8 475.4,-348.8 475.4,-348.8 475.4,-310.4 475.4,-310.4 475.4,-304.4 481.4,-298.4 487.4,-298.4 487.4,-298.4 644.6,-298.4 644.6,-298.4 650.6,-298.4 656.6,-304.4 656.6,-310.4 656.6,-310.4 656.6,-348.8 656.6,-348.8 656.6,-354.8 650.6,-360.8 644.6,-360.8"/>
+<text xml:space="preserve" text-anchor="middle" x="566" y="-333.8" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Wi-Fi Covariance Inflation</text>
+<text xml:space="preserve" text-anchor="middle" x="566" y="-317" font-family="Helvetica,Arial,sans-serif" font-size="14.00">P_wifi(t) = σ²_wifi + Q * t</text>
+</g>
+<!-- ftm&#45;&gt;cov_inflation -->
+<g id="edge7" class="edge">
+<title>ftm-&gt;cov_inflation</title>
+<path fill="none" stroke="#495057" d="M692.95,-728.75C692.95,-629.36 692.95,-330 692.95,-330 692.95,-330 668.42,-330 668.42,-330"/>
+<polygon fill="#495057" stroke="#495057" points="668.42,-326.5 658.42,-330 668.42,-333.5 668.42,-326.5"/>
+<text xml:space="preserve" text-anchor="middle" x="843" y="-542" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> Initial σ²_wifi</text>
+</g>
+<!-- foh_calc -->
+<g id="node5" class="node">
+<title>foh_calc</title>
+<path fill="#e8f5e9" stroke="#1b5e20" d="M343.5,-510C343.5,-510 170.5,-510 170.5,-510 164.5,-510 158.5,-504 158.5,-498 158.5,-498 158.5,-442.8 158.5,-442.8 158.5,-436.8 164.5,-430.8 170.5,-430.8 170.5,-430.8 343.5,-430.8 343.5,-430.8 349.5,-430.8 355.5,-436.8 355.5,-442.8 355.5,-442.8 355.5,-498 355.5,-498 355.5,-504 349.5,-510 343.5,-510"/>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-483" font-family="Helvetica,Arial,sans-serif" font-size="14.00">First-Order Hold (FOH)</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-466.2" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Velocity Extrapolation</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-449.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(r_pred = r_last + v_wifi * Δt)</text>
+</g>
+<!-- ftm_proj&#45;&gt;foh_calc -->
+<g id="edge3" class="edge">
+<title>ftm_proj-&gt;foh_calc</title>
+<path fill="none" stroke="#495057" d="M222.88,-579.62C222.88,-579.62 222.88,-522.01 222.88,-522.01"/>
+<polygon fill="#495057" stroke="#495057" points="226.38,-522.01 222.88,-512.01 219.38,-522.01 226.38,-522.01"/>
+<text xml:space="preserve" text-anchor="middle" x="247.27" y="-542" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> 2D Track</text>
+</g>
+<!-- aoi_calc&#45;&gt;cov_inflation -->
+<g id="edge6" class="edge">
+<title>aoi_calc-&gt;cov_inflation</title>
+<path fill="none" stroke="#495057" d="M566,-438.8C566,-438.8 566,-372.61 566,-372.61"/>
+<polygon fill="#495057" stroke="#495057" points="569.5,-372.61 566,-362.61 562.5,-372.61 569.5,-372.61"/>
+<text xml:space="preserve" text-anchor="middle" x="571.14" y="-392.8" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> Δt</text>
+</g>
+<!-- foh_calc&#45;&gt;dci_fusion -->
+<g id="edge8" class="edge">
+<title>foh_calc-&gt;dci_fusion</title>
+<path fill="none" stroke="#495057" d="M257,-430.38C257,-430.38 257,-240.21 257,-240.21"/>
+<polygon fill="#495057" stroke="#495057" points="260.5,-240.21 257,-230.21 253.5,-240.21 260.5,-240.21"/>
+<text xml:space="preserve" text-anchor="middle" x="271.3" y="-326.6" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> r_pred</text>
+</g>
+<!-- cov_inflation&#45;&gt;dci_fusion -->
+<g id="edge9" class="edge">
+<title>cov_inflation-&gt;dci_fusion</title>
+<path fill="none" stroke="#495057" d="M475.15,-330C432.73,-330 391.45,-330 391.45,-330 391.45,-330 391.45,-240.07 391.45,-240.07"/>
+<polygon fill="#495057" stroke="#495057" points="394.95,-240.07 391.45,-230.07 387.95,-240.07 394.95,-240.07"/>
+<text xml:space="preserve" text-anchor="middle" x="487.3" y="-260.4" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> P_wifi(t)</text>
+</g>
+<!-- fused_est -->
+<g id="node8" class="node">
+<title>fused_est</title>
+<path fill="#d1ecf1" stroke="#0c5460" d="M349.8,-62.4C349.8,-62.4 164.2,-62.4 164.2,-62.4 158.2,-62.4 152.2,-56.4 152.2,-50.4 152.2,-50.4 152.2,-12 152.2,-12 152.2,-6 158.2,0 164.2,0 164.2,0 349.8,0 349.8,0 355.8,0 361.8,-6 361.8,-12 361.8,-12 361.8,-50.4 361.8,-50.4 361.8,-56.4 355.8,-62.4 349.8,-62.4"/>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Fused Radial Estimate (r_fused)</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-size="14.00">(No staircase artifacts)</text>
+</g>
+<!-- dci_fusion&#45;&gt;fused_est -->
+<g id="edge11" class="edge">
+<title>dci_fusion-&gt;fused_est</title>
+<path fill="none" stroke="#495057" d="M257,-131.96C257,-131.96 257,-74.02 257,-74.02"/>
+<polygon fill="#495057" stroke="#495057" points="260.5,-74.02 257,-64.02 253.5,-74.02 260.5,-74.02"/>
+<text xml:space="preserve" text-anchor="middle" x="273.11" y="-94.4" font-family="Helvetica,Arial,sans-serif" font-size="10.00"> Fused r</text>
+</g>
+</g>
+</svg>

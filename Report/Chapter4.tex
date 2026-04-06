@@ -50,7 +50,7 @@ The above minimizes all multipath induced over estimations of the direct path.
 \section{State Representation and Kalman Filter Design}
 \label{sec:kalman}
 
-Radar transmits data to be used to update locations at rates ranging from 10 to 24~Hz while Wi-Fi sends bursty location measurements at rates ranging from 1 to 2~Hz. Under the common assumption of the standard synchronous Kalman filter model, the rate difference described above creates what we call ``freshness blind'' conditions. During inter-update gaps, the filter trusts stale Wi-Fi readings and tends to pull the estimate toward outdated positions. Upon receipt of another Wi-Fi reading, the filter will then respond in the opposite direction and create the well-known stair-step motion associated with this problem --- i.e., track stalls followed by large (non-physical) jumps.
+Radar transmits data to be used to update locations at rates ranging from 10 to 24~Hz while Wi-Fi sends bursty location measurements at rates ranging from 1 to 2~Hz. Under the common assumption of the standard synchronous Kalman filter model, the rate difference described above creates what we call ``freshness blind'' conditions. During inter-update gaps, the filter trusts stale Wi-Fi readings and tends to pull the estimate toward outdated positions. Upon receipt of another Wi-Fi reading, the filter will then respond in the opposite direction and create the well-known stair-step motion associated with this problem - i.e., track stalls followed by large (non-physical) jumps.
 
 To replace this Zero Order Hold (ZOH) assumption for the prediction step of our Kalman Filter, we have employed a Constant Velocity (CV) prediction model with first order hold (FOH). The number of dimensions of our state space is limited to one dimension (i.e., radial distance) and one dimension (its first derivative), to minimize computation requirements on the embedded microprocessor. Precise inter-measurement timing is obtained via the RTOS kernel function. Radial Wi-Fi velocity is smoothed with an Exponential Moving Average to prevent raw derivative noise from destabilizing the kinematic projection:
 
@@ -66,7 +66,7 @@ r_{pred} = r_{wifi\_last} + v_{wifi\_new}\, \Delta t
 \label{eq:coast}
 \end{equation}
 
-The formulation ensures that each time a frame is delivered by the fast radar, there will be an equivalent Wi-Fi frame that has been corrected for velocity at that time --- eliminating all temporal anomalies in the dual-rate data flow.
+The formulation ensures that each time a frame is delivered by the fast radar, there will be an equivalent Wi-Fi frame that has been corrected for velocity at that time - eliminating all temporal anomalies in the dual-rate data flow.
 
 \section{Dynamic Covariance Intersection (DCI) Algorithm}
 \label{sec:dci}
@@ -102,10 +102,17 @@ r_{fused} = \left[\frac{1}{\frac{\omega}{\sigma^2_{radar}} + \frac{1-\omega}{P_{
 
 During a time when the target is visible, the variance ratio is sufficient to drive radar confidence greater than 91\% and during complete occlusion, the radar covariance increases sharply and the algorithm completely relies on Wi-Fi; therefore, it continues tracking the object even when there are obstructions. This process requires less than 20 operations per step.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/DynamicCovarianceIntersectionAlgorithmFlowchart.pdf}
+\caption{Flowchart of the Dynamic Covariance Intersection (DCI) algorithm showing freshness-weighted fusion with Age-of-Information penalty.}
+\label{fig:dci_flowchart}
+\end{figure}
+
 \section{ML-Based Fusion}
 \label{sec:mlfusion}
 
-Variance ratios that remain fixed and linear kinematics will not be able to model nonlinear effects of the environment --- specifically the inverted error curve, which shows an improvement in Wi-Fi accuracy with increasing distance while the degradation in radar signal also increases with range. An alternative parallel ML-based fusion strategy addresses this limitation.
+Variance ratios that remain fixed and linear kinematics will not be able to model nonlinear effects of the environment - specifically the inverted error curve, which shows an improvement in Wi-Fi accuracy with increasing distance while the degradation in radar signal also increases with range. An alternative parallel ML-based fusion strategy addresses this limitation.
 
 \subsection{Feature Engineering and Forward-Fill Methodology}
 \label{sec:features}
@@ -124,6 +131,13 @@ This includes 3488 samples, a time window of five, and five feature dimensions i
 
 The Multi-Layer Perceptron (MLP) is structured based upon the memory limitations of the microcontroller. The $5 \times 5$ input window was flattened to 25 features, then were two dense hidden layers containing 48 and 24 units respectively, and a final output layer contained two linear units which predict the normalized distance and angle. A total of 2474 units are trainable. Training was accomplished using the Adam Optimizer which minimized mean squared error (MSE) on the data set over 200 epochs with the chronological split of 70\% of the data being dedicated to training, 15\% for validation, and 15\% for testing. The reason for this is to prevent a phenomenon called window-overlap leakage. After seven epochs when there is no change in the loss function, the learning rate is halved and returns to previous best weights if no improvement in validation loss occurs during fifteen consecutive epochs.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Figures/MLPmodelNodalDiagram.pdf}
+\caption{Nodal diagram of the Edge MLP architecture: 25 input features (flattened $5\times5$ window), two hidden layers (48 and 24 units), and 2 output units (distance and angle).}
+\label{fig:mlp_diagram}
+\end{figure}
+
 \subsection{Edge Deployment}
 \label{sec:edge}
 
@@ -135,3 +149,10 @@ A 2.35~cm geometric floor exists as the result of quantizing a 6~m range into 25
 Algorithms prior to deployment on embedded systems are tested in two digital twin test environments. In both MATLAB/Simulink environments, continuous time target kinematic models use constant velocity and evasive maneuver generators to simulate motion. In addition to simulating motion, ground truth is degraded via two channels: the Wi-Fi channel samples the data stream at a frequency of 1--2~Hz and adds random Gaussian noise and the radar channel samples at a higher rate but has a configurable signal-to-noise ratio. Interactive parameters can be used to add simulated drops during testing of both the coasting phase and convergence phase.
 
 The track creation module produces line of sight (LOS) trajectories that go through non-LOS scenarios with respect to synthetic barriers. When the radar sensor performs raycasting within its field of vision it also marks an occlusion flag on any obstacle. The WiFi module applies random variance based on distance from the node to simulate actual WiFi signal strength. At 100~ms simulated ticks, the DCI fusion simulates the edge code. In real time users can create virtual walls across trajectories which are immediately detected by the radar and will block the radar's raycasting, causing the radar covariance to spike to infinity. Therefore, all trust is then placed in WiFi. By utilizing this multi-environment paradigm we validate both timing synchronization and geometric covariance behavior prior to testing in a physical environment.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{Figures/DynamicCovarianceAlgorithmMatlabSimulation.png}
+\caption{MATLAB/Simulink digital twin simulation of the DCI algorithm showing target trajectory, sensor readings, and fused output with configurable occlusion barriers.}
+\label{fig:matlab_sim}
+\end{figure}

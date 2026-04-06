@@ -265,8 +265,9 @@
       \bigskip
       {\LARGE by\par}
       \smallskip
-      {\LARGE NAME1 \quad NAME2\par}           % Update with actual names
-      {\large 22BECxxxx \quad 22BECxxxx\par}   % Update with reg. numbers
+      {\large \textbf{22BEC1435} \quad Avinash Nair\par}
+      {\large \textbf{22BEC1376} \quad Anek Sreedhar T S\par}
+      {\large \textbf{22BEC1386} \quad Dasangam Akash\par}
       \bigskip\bigskip
       \includegraphics[width=8cm]{logo.png}\par
       \bigskip\bigskip
