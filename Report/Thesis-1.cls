@@ -265,9 +265,9 @@
       \bigskip
       {\LARGE by\par}
       \smallskip
-      {\large \textbf{22BEC1435} \quad Avinash Nair\par}
-      {\large \textbf{22BEC1376} \quad Anek Sreedhar T S\par}
-      {\large \textbf{22BEC1386} \quad Dasangam Akash\par}
+      {\large \textbf{22BEC1435} \quad \MakeUppercase{Avinash Nair}\par}
+      {\large \textbf{22BEC1376} \quad \MakeUppercase{Anek Sreedhar T S}\par}
+      {\large \textbf{22BEC1386} \quad \MakeUppercase{Dasangam Akash}\par}
       \bigskip\bigskip
       \includegraphics[width=8cm]{logo.png}\par
       \bigskip\bigskip
