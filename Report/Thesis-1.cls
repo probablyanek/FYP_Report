@@ -60,9 +60,17 @@
 %% PAGE LAYOUT
 %% ----------------------------------------------------------------
 \usepackage{setspace}
-\onehalfspacing
+\setstretch{1.15}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
+\setlength{\parskip}{1.0ex plus0.3ex minus0.2ex}
+
+%% Compact chapter/section headings
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{14pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus .2ex}{0.8ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 0.4ex minus .2ex}{0.6ex plus .2ex}
 \usepackage{vmargin}
 \setmarginsrb{1.5in}   % left margin
              {0.6in}   % top margin
@@ -100,6 +108,15 @@
 %% MATHS
 %% ----------------------------------------------------------------
 \usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace}
+
+%% Tighter equation spacing
+\AtBeginDocument{%
+  \abovedisplayskip=8pt plus 2pt minus 4pt
+  \belowdisplayskip=8pt plus 2pt minus 4pt
+  \abovedisplayshortskip=4pt plus 2pt
+  \belowdisplayshortskip=6pt plus 2pt minus 2pt
+}
+
 \theoremstyle{plain}
 \newtheorem{example}{Example}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
