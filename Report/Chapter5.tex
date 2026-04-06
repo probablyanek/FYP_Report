@@ -1,0 +1,24 @@
+%% ----------------------------------------------------------------
+%% Chapter 5 -- Empirical Sensor Accuracy Evaluation
+%% ----------------------------------------------------------------
+\chapter{Empirical Sensor Accuracy Evaluation}
+\label{chap:evaluation}
+
+It is crucial to accurately characterize each sensing modality for use as input parameters in order to functionally operate the fusion engine. As such, this chapter describes the evaluation of the spatial accuracy of the radar and Wi-Fi initiator along with their respective distance dependent error functions throughout a calibrated 20 foot indoor hallway.
+
+\section{Experimental Paradigm}
+\label{sec:paradigm}
+
+Ground truth was determined using a laser rangefinder. The hallway was divided into twelve stationary target locations. Each location had thirty seconds of continuous data taken. To ensure no motion occurred during capture of the data, a strict micro-motion protocol was followed. This is due to the fact that if perfect static returns occur the radar filter considers them to be clutter and drops the entire track.
+
+The Radar provided 10--15~Hz Cartesian update. The Burst Period of the FTM Initiator was set at 200 milliseconds and asked for 16 Exchange Frames in each Burst. The Physical Layer was locked to HT40 Bandwidth which effectively halved the Temporal Resolution Floor and sharpened the Correlation Peak and thus allowed for tighter Estimation. Validated Samples per Distance Interval were accumulated to compute Errors.
+
+\section{Error Profiling}
+\label{sec:errorprofiling}
+
+The comparative distance accuracy throughout the test envelope demonstrates clearly identifiable Trends. The Mean Absolute Error (MAE) of the Radar at 5 feet was $\pm$0.15 feet, while MAE of Wi-Fi at 5 feet was $\pm$4.80 feet. At 10 feet, the MAE of Radar increased by $\pm$0.32 feet and the MAE of Wi-Fi decreased to $\pm$2.45 feet. At 20 feet, the MAE of Radar grew to $\pm$0.65 feet and the MAE of Wi-Fi fell to $\pm$1.10 feet. The radar showed an obvious Linear Error Scaling that followed Power Attenuation---highly Precise Near-Field Readings when High Signal Overpowers Clutter, through the Degraded Far-Field Precision. In contrast, the Wi-Fi Profile shows an Inverted Trend: Extreme Near-Field Over-Estimation occurs due to Receiver Saturation and Multipath Reflections Arriving Within the Resolution Floor. With increasing Distance, the Signal-Multipath Ratio Improves, therefore the Error Drops Significantly.
+
+\section{Crossover Insight and Fusion Justification}
+\label{sec:crossover}
+
+The inverse of the error curves indicate that there exists a physical crossover region close to the 15--20 foot boundary. Radar is superior to Wi-Fi in near field due to its signal characteristics, however Wi-Fi is superior to radar in far-field due to increased spatial multipath separation. This immediately eliminates the possibility of static fusion. A Kalman filter trained with near-field radar variance will have too much confidence in Wi-Fi when operating in far-field (thus allowing excessive bias from near-field Wi-Fi into otherwise clean radar data). To track continuously sub-meter demand dynamic frame by frame trust adjustment.

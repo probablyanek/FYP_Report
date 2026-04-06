@@ -1,0 +1,20 @@
+%% ----------------------------------------------------------------
+%% Chapter 8 -- Conclusion and Future Work
+%% ----------------------------------------------------------------
+\chapter{Conclusion and Future Work}
+\label{chap:conclusion}
+
+\section{Summary of Contributions}
+\label{sec:contributions}
+
+This work demonstrated a functional monostatic ISAC node that integrates 24~GHz FMCW radar and 802.11mc FTM on a low-cost dual-core platform. It provided continuous identity-aware indoor tracking capabilities that are resilient to hardware drop-outs and environmental occlusions. The mathematical framework solved heterogeneous sensor synchronization issues through real-time age penalties and velocity extrapolations by dynamically increasing stale stream covariance when tracking diverges due to outdated data. The parallel machine learning fusion used a temporally windowed, forward-filled network running purely in floating point 32-bit numbers to achieve sub-10~cm error rates and autonomously transfer confidence toward more penetrative Wi-Fi when total radar occlusion is detected. Strict dual core isolation ensured zero serial frame corruption was introduced during high-speed fusion operations, showing that high speed fusion is possible on highly constrained microprocessors.
+
+\section{Limitations}
+\label{sec:limitations}
+
+The limitations of both architectural styles are that each has an angular blind spot. Since Wi-Fi is capable of determining range only in one dimension (radially), all two dimensional (Cartesian) projections require some angle estimate. As such, there is no angular measurement. When the radar is totally occluded, Wi-Fi still tracks the target radially while the angular measurements use stale history to extrapolate. If the target moves tangentially behind an opaque barrier, it cannot be tracked at all. The variance prior of the mathematical framework will not adjust to specific anomalies in the environment while the network adjusts to environmental conditions dynamically however, it is limited to its offline training context. Each modality suffers from radar identity blindness as a result of being unimodal. To determine if another radar signal is cooperative, the radar must associate with a Wi-Fi signal and eliminate non-cooperative clutter.
+
+\section{Future Directions}
+\label{sec:future}
+
+Multi-modal (Wi-Fi + Radar) scalability will involve developing collision detection and avoidance methods for simultaneously responding targets. Developing data association methods to relate multiple radial distances to different point cloud clusters is also required to prevent ``ghost track'' generation. The transition from single node, monostatic processing of multi-static networks to distributed edge computing will allow multiple nodes to share partially fused spatial matrices over low latency backhaul. Cooperative spatial diversity will resolve angular blindness when local occlusions occur. Integration of supplementary IMU or LiDAR telemetry into the neural windowing architecture will further reduce stochastic uncertainty in sensor readings. Finally, the design of waveforms and interference mitigation strategies will address competing objectives for communication throughput and resolution requirements for estimating parameters across shared spectrum resources.

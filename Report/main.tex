@@ -1,0 +1,242 @@
+\documentclass[a4paper, 11pt, oneside]{Thesis-1}
+
+\graphicspath{{Figures/}}
+
+\usepackage[square, numbers, comma, sort&compress]{natbib}
+\usepackage{verbatim}
+\usepackage{longtable}          % multi-page tables
+\usepackage{array}              % extended column definitions
+\usepackage{booktabs}           % professional table rules
+\usepackage{multirow}           % \multirow in SDG table
+\usepackage{colortbl}           % \rowcolor in SDG table
+\usepackage[table]{xcolor}      % colour definitions
+\usepackage{acronym}            % List of Acronyms
+\usepackage{listings}           % Code listings in Appendix
+\usepackage{courier}            % Courier font for code
+\hypersetup{urlcolor=blue, colorlinks=true}
+
+%% ----------------------------------------------------------------
+\begin{document}
+\frontmatter
+
+\title  {\bf Asynchronous Sensor Fusion for ISAC Nodes Integrating Wi-Fi Sensing and mmWave Radar}
+\authors{\texorpdfstring{\href{mailto:name.22xxxxx@vitstudent.ac.in}{Name1}
+         \and \href{mailto:name.22xxxxx@vitstudent.ac.in}{Name2}}{}}
+\addresses{\groupname\\\deptname\\\univname}
+\date   {April 2026}
+\subject{}
+\keywords{}
+
+\maketitle
+
+\setstretch{1.0}
+\fancyhead{}
+\rhead{\thepage}
+\lhead{}
+\pagestyle{fancy}
+
+%% ----------------------------------------------------------------
+%% DECLARATION
+%% ----------------------------------------------------------------
+\Declaration{
+
+\addtocontents{toc}{\vspace{1em}}
+
+\vspace{0.5cm}
+
+We hereby declare that the report titled {\bf\textit{Asynchronous Sensor Fusion for ISAC Nodes Integrating Wi-Fi Sensing and mmWave Radar}}
+submitted by us to the School of Electronics Engineering, Vellore Institute of
+Technology, Chennai, in partial fulfilment of the requirements for the award of
+{\bf Bachelor of Technology} in {\bf Electronics and Communication Engineering},
+is a bonafide record of the work carried out by us under the supervision of
+{\bf\textit{Guide Name}}.
+
+We further declare that the work reported in this report has not been submitted
+and will not be submitted, either in part or in full, for the award of any other
+degree or diploma of this institute or of any other institute or University.
+
+\vspace{1cm}
+
+\noindent
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+Signature of the Student: \dotfill & Signature of the Student: \dotfill \\[1.2cm]
+Name \& Reg.\ No.: \dotfill        & Name \& Reg.\ No.: \dotfill        \\[0.8cm]
+Date: \dotfill                     & Date: \dotfill                     \\
+\end{tabular}
+
+\thispagestyle{empty}
+}
+
+\clearpage
+
+%% ----------------------------------------------------------------
+%% CERTIFICATE
+%% ----------------------------------------------------------------
+\Certificate{
+\addtocontents{toc}{\vspace{0.5em}}
+
+This is to certify that the project report titled {\bf\textit{Asynchronous Sensor Fusion for ISAC Nodes Integrating Wi-Fi Sensing and mmWave Radar}}
+submitted by {\bf\textit{Name(s)} (Reg.\ No.)} to Vellore Institute of Technology,
+Chennai, in partial fulfilment of the requirement for the award of the degree of
+{\bf Bachelor of Technology} in {\bf Electronics and Communication Engineering}
+is a bonafide work carried out under my supervision. The project report fulfils the
+requirements as per the regulations of this University and, in my opinion, meets the
+necessary standards for submission. The contents of this report have not been submitted
+and will not be submitted either in part or in full, for the award of any other degree
+or diploma and the same is certified.
+
+\vspace{0.8cm}
+
+\begin{center}
+\begin{tabular}{p{6cm} p{6cm}}
+\textbf{Supervisor}              & \textbf{Head of the Department}  \\[1.5cm]
+Signature: \dotfill              & Signature: \dotfill              \\[0.5cm]
+Name: \dotfill                   & Name: \dotfill                   \\[0.5cm]
+Date: \dotfill                   & Date: \dotfill                   \\
+\end{tabular}
+\end{center}
+
+\vspace{0.6cm}
+
+\begin{center}
+\begin{tabular}{p{6cm} p{6cm}}
+\textbf{Examiner 1}              & \textbf{Examiner 2}              \\[1.5cm]
+Signature: \dotfill              & Signature: \dotfill              \\[0.5cm]
+Name: \dotfill                   & Name: \dotfill                   \\[0.5cm]
+Date: \dotfill                   & Date: \dotfill                   \\
+\end{tabular}
+\end{center}
+
+\begin{flushright}
+(Seal of the School)
+\end{flushright}
+
+\thispagestyle{empty}
+}
+
+\thispagestyle{empty}
+\clearpage
+
+%% ----------------------------------------------------------------
+%% ABSTRACT
+%% ----------------------------------------------------------------
+\addtotoc{Abstract}
+\abstract{
+\addtocontents{toc}{\vspace{1em}}
+
+This work presents a dual-tier asynchronous sensor fusion framework for Integrated Sensing and Communication (ISAC) nodes, combining 24~GHz FMCW radar with IEEE~802.11mc Fine Time Measurement (FTM) on a low-cost ESP32-S3 dual-core platform. Single-modality ISAC systems suffer from complementary failure modes: millimetre-wave radar provides sub-foot range resolution and micro-Doppler signatures but is identity-blind and fails under line-of-sight occlusion, while Wi-Fi FTM offers MAC-address-linked identity and wall-penetrating coverage but exhibits 1.5--4.8~m spatial variability and updates at only 1--2~Hz. The resulting synchronisation gap causes standard Kalman filters to lock onto stale Wi-Fi readings, producing trajectory staircase artefacts during target manoeuvres.
+
+Two fusion algorithms are developed and compared. Dynamic Covariance Intersection (DCI) projects the one-dimensional Wi-Fi range onto the radar's angular vector, applies first-order-hold velocity extrapolation, and inflates stale-sensor covariance via real-time Age-of-Information penalties, achieving a 45\% reduction in mean squared error during occlusion. An Edge MLP (11.6~KB, 2{,}474 float32 parameters) ingests a $5\times5$ sliding window of forward-filled features with binary freshness flags, completes inference in 350~$\mu$s per window entirely within internal SRAM, and delivers a test-set range MAE of 0.118~m with a P95 Euclidean error of 0.555~m. Strict dual-core isolation---Wi-Fi on Core~0, UART parsing and inference on Core~1---eliminates serial-buffer corruption. Validation employs a MATLAB/Simulink digital twin and a Python test suite covering field-of-view escape, pillar occlusion, tangential walk, and statue-mode scenarios.
+
+}
+
+\clearpage
+
+%% ----------------------------------------------------------------
+%% ACKNOWLEDGEMENTS
+%% ----------------------------------------------------------------
+\acknowledgements{
+\addtocontents{toc}{\vspace{1em}}
+
+We wish to express our sincere thanks and deep sense of gratitude to our project guide,
+\textbf{Dr.~XXXX}, Professor, School of Electronics Engineering (SENSE), for
+his/her consistent encouragement and valuable guidance offered to us in a pleasant
+manner throughout the course of the project work.
+
+We sincerely express our gratitude to \textbf{Dr.~Ravi Sankar~A}, Dean, SENSE;
+\textbf{Dr.~Mohanaprasad~K}, Associate Dean (Academics), SENSE; and
+\textbf{Dr.~Chitra~K}, Associate Dean (Research), SENSE, for providing the necessary
+facilities and for their constant encouragement and support throughout our project.
+
+We also extend our heartfelt thanks to \textbf{Dr.~Jagannath~M}, Head of the
+Department, for his continuous guidance and support during the course of this project.
+
+We also take this opportunity to thank all the faculty of the School for their support
+and their wisdom imparted to us throughout the course.
+
+We thank our parents, family, and friends for bearing with us throughout the course of
+our project and for the opportunity they provided us in undergoing this course in such
+a prestigious institution.
+}
+
+\clearpage
+
+%% ----------------------------------------------------------------
+%% TABLE OF CONTENTS / LIST OF FIGURES / LIST OF TABLES
+%% ----------------------------------------------------------------
+\pagestyle{fancy}
+
+\lhead{\emph{Contents}}
+\tableofcontents
+
+\lhead{\emph{List of Figures}}
+\listoffigures
+
+\lhead{\emph{List of Tables}}
+\listoftables
+
+%% ----------------------------------------------------------------
+%% LIST OF ACRONYMS
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Acronyms}}
+\phantomsection
+\addtotoc{List of Acronyms}
+\chapter*{List of Acronyms}
+
+\begin{acronym}[FreeRTOS]
+  \acro{ISAC}    {Integrated Sensing and Communication}
+  \acro{FMCW}    {Frequency Modulated Continuous Wave}
+  \acro{FTM}     {Fine Time Measurement}
+  \acro{DCI}     {Dynamic Covariance Intersection}
+  \acro{MLP}     {Multi-Layer Perceptron}
+  \acro{AoI}     {Age of Information}
+  \acro{CI}      {Covariance Intersection}
+  \acro{RTOS}    {Real-Time Operating System}
+  \acro{UART}    {Universal Asynchronous Receiver-Transmitter}
+  \acro{SRAM}    {Static Random-Access Memory}
+  \acro{RCS}     {Radar Cross Section}
+  \acro{RTT}     {Round-Trip Time}
+  \acro{FOV}     {Field of View}
+  \acro{LOS}     {Line of Sight}
+  \acro{NLOS}    {Non-Line of Sight}
+  \acro{MSE}     {Mean Squared Error}
+  \acro{MAE}     {Mean Absolute Error}
+  \acro{FFT}     {Fast Fourier Transform}
+  \acro{MAC}     {Media Access Control}
+  \acro{ISM}     {Industrial, Scientific and Medical}
+  \acro{SDR}     {Software Defined Radio}
+  \acro{CV}      {Constant Velocity}
+  \acro{FOH}     {First Order Hold}
+  \acro{ZOH}     {Zero Order Hold}
+  \acro{EMA}     {Exponential Moving Average}
+  \acro{IoT}     {Internet of Things}
+  \acro{ML}      {Machine Learning}
+  \acro{AI}      {Artificial Intelligence}
+  \acro{GPS}     {Global Positioning System}
+  \acro{IMU}     {Inertial Measurement Unit}
+  \acro{LiDAR}   {Light Detection and Ranging}
+\end{acronym}
+
+\clearpage
+
+\setstretch{1.3}
+\pagestyle{empty}
+\addtocontents{toc}{\vspace{2em}}
+
+%% ----------------------------------------------------------------
+\mainmatter
+\pagestyle{fancy}
+
+\input{Chapter1}   % Introduction
+\input{Chapter2}   % Literature Survey
+\input{Chapter3}   % System Design & Architecture
+\input{Chapter4}   % Methodology
+\input{Chapter5}   % Empirical Sensor Accuracy Evaluation
+\input{Chapter6}   % Results and Discussion
+\input{Chapter7}   % Challenges and Solutions
+\input{Chapter8}   % Conclusion and Future Work
+\input{Bibliography}
+
+\addtocontents{toc}{\vspace{2em}}
+
+\end{document}
